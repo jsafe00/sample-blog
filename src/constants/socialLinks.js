@@ -8,7 +8,7 @@ const SocialLinks = ({ styleClass }) => {
   return (
     <ul className={styleClass}>
       <li>
-        <a href="https://twitter.com">
+        <a href="https://facebook.com">
           <FaFacebookSquare className="social-icon facebook-icon"></FaFacebookSquare>
         </a>
       </li>
