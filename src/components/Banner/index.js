@@ -8,6 +8,7 @@ const Banner = () => {
     <Wrapper>
       <About />
       <BannerCategories />
+      <Recent />
     </Wrapper>
   )
 }

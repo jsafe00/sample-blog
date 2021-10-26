@@ -26,26 +26,32 @@ const query = graphql`
 `
 
 const Recent = () => {
-  const data = useStaticQuery(query);
-  const {allMdx:{nodes:posts}} = data
+  const data = useStaticQuery(query)
+  const {allMdx: { nodes: posts },} = data
+
   return (
     <Wrapper>
-    <Title title="recent" />
-    {posts.map((post)=> {
-      const {title, slug, date, image} = post.frontmatter;
-      return <Link to={`posts/${slug}`} key={post.id}
-      className="post">
-        <GatsbyImage image={getImage(image)} alt={title} 
-        className="img" />
-        <div>
-          <h5>{title}</h5>
-          <p>{date}</p>
-        </div>
-      </Link>
-    })}
+      <Title title="recent" />
+      {posts.map(post => {
+        const { title, slug, date, image } = post.frontmatter
+        return (
+          <Link to={`/posts/${slug}`} key={post.id} className="post">
+            <GatsbyImage
+              image={getImage(image)}
+              alt={title}
+              className="img"
+            ></GatsbyImage>
+            <div>
+              <h5>{title}</h5>
+              <p>{date}</p>
+            </div>
+          </Link>
+        )
+      })}
     </Wrapper>
   )
 }
+
 
 const Wrapper = styled.div`
   .post {
